@@ -1,0 +1,11 @@
+[package]
+name = "pylyzer-zed"
+version = "0.0.1"
+edition = "2025"
+
+[lib]
+path = "src/pylyzer.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "^0.2.0"

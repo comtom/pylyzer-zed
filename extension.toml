@@ -1,0 +1,11 @@
+id = "pylyzer"
+name = "pylyzer"
+description = "Pylyzer support."
+version = "0.0.1"
+schema_version = 1
+authors = ["Tomas Gonzalez Dowling <tomas@comtom.engineering>"]
+repository = "https://github.com/comtom/pylyzer-zed"
+
+[language_servers.pylyzer]
+name = "Pylyzer"
+languages = ["Python"]
