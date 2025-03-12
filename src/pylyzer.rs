@@ -16,7 +16,7 @@ impl zed::Extension for Pylyzer {
         if let Ok(lsp_settings) = LspSettings::for_worktree("pylyzer", worktree) {
             if let Some(binary) = lsp_settings.binary {
                 if let Some(path) = binary.path {
-                    let args = binary.arguments.unwrap_or(vec!["--stdio".to_string()]);
+                    let args = binary.arguments.unwrap_or(vec!["--server".to_string()]);
                     return Ok(zed::Command {
                         command: path,
                         args,
@@ -27,11 +27,11 @@ impl zed::Extension for Pylyzer {
         }
 
         let path = worktree
-            .which("pylyzer-langserver")
+            .which("pylyzer")
             .ok_or_else(|| "pylyzer must be installed and available in $PATH.".to_string())?;
         Ok(zed::Command {
             command: path,
-            args: vec!["--stdio".to_string(), Default::default()],
+            args: vec!["--server".to_string(), Default::default()],
             env: env,
         })
     }
